@@ -8,9 +8,10 @@ import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { InputComponent } from './components/input/input.component';
-import { PedidoComponent } from './components/pages/pedido/pedido.component';
-import { CardapioComponent } from './components/pages/cardapio/cardapio.component';
-import { CategoriaComponent } from './components/pages/categoria/categoria.component';
+import { PedidoComponent } from './views/pedido/pedido.component';
+import { CardapioComponent } from './views/cardapio/cardapio.component';
+import { CategoriaComponent } from './views/categoria/categoria.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoriaComponent } from './components/pages/categoria/categoria.compo
     InputComponent,
     PedidoComponent,
     CardapioComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
