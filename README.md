@@ -1,27 +1,30 @@
-# BurgermaniaFrontend
+# Burger Mania - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Funcionalidades
 
-## Development server
+- **Componentização**: Contém componentes reutilizáveis, como Header, Botão, Card, Descrição e Input.
+- **Roteamento**: Navegação entre as páginas de Pedido e Cardápio, com suporte a categorias específicas.
+- **Estilos Globais com Variáveis CSS**: Define variáveis para cores e tipografia, aplicadas em todos os componentes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Estrutura do Projeto
 
-## Code scaffolding
+- **src/app/components**: Contém os componentes reutilizáveis (Header, Botão, Card, Descrição e Input).
+- **src/app/pages**: Contém as páginas principais do projeto (Pedido, Cardápio, Categoria).
+- **src/styles.css**: Arquivo de estilos globais, onde estão definidas as variáveis CSS.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Requisitos do Projeto
 
-## Build
+- **Página de Pedido**: Exibe informações do pedido.
+- **Página de Cardápio**:
+  - Lista categorias de hambúrgueres.
+  - Redireciona para uma página com os itens disponíveis ao selecionar uma categoria.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Configuração Inicial
 
-## Running unit tests
+1. Instale as dependências do projeto:
+   ```bash
+   npm install
+2.Inicie o servidor de desenvolvimento:
+   ```bash
+   ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
