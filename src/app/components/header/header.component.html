@@ -1,13 +1,16 @@
 <div class="header">
-    <div class="logo">
-      <img src="/logo.svg" alt="Burguer Mania Logo" />
-    </div>
-    <nav class="menu">
-      <a routerLink="/home">Início</a>
-      <a routerLink="/categoria">Categoria</a>
-      <a routerLink="/cardapio">Cardápio</a>
-      <a routerLink="/localizacao">Localização</a>
-      <a routerLink="/contato">Contato</a>
-    </nav>
+  <div class="logo">
+    <img src="/logo.svg" alt="Burguer Mania Logo" />
   </div>
-  
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    {{ isSidebarActive ? '✖' : '☰' }}
+  </button>
+  <button class="menu-toggle" (click)="toggleSidebar()">☰</button>
+  <nav class="menu" [class.active]="isSidebarActive">
+    <a routerLink="/home" (click)="toggleSidebar()">Início</a>
+    <a routerLink="/categoria" (click)="toggleSidebar()">Categoria</a>
+    <a routerLink="/cardapio" (click)="toggleSidebar()">Cardápio</a>
+    <a routerLink="/localizacao" (click)="toggleSidebar()">Localização</a>
+    <a routerLink="/contato" (click)="toggleSidebar()">Contato</a>
+  </nav>
+</div>

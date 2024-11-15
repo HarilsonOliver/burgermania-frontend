@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isSidebarActive = false;
 
+  toggleSidebar() {
+    this.isSidebarActive = !this.isSidebarActive;
+  }
 }

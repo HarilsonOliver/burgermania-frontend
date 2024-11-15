@@ -1,2 +1,36 @@
-/* style.css ou styles.css */
+button {
+  padding: 10px 20px;
+  font-size: 23px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 3%;
+  width: 256px;
+  height: 66px;
+  font-family: Arial, Helvetica, sans-serif;
 
+
+  &.filled {
+    background-color: #ED0000;
+    color: #fff;
+    border: none;
+    margin-right: 5%;
+  }
+
+  &.outlined {
+    background-color: transparent;
+    color: #521D16;
+    border: 2px solid #ED0000;
+
+    @media (max-width: 768px) { // Tablets
+      margin-right: 5%;
+    }
+    @media (max-width: 576px) { // Celulares
+      margin-right: 5%;
+    }
+  }
+  button.large {
+    width: 404px;
+    height: 74px;
+  }
+}
