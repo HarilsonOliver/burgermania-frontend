@@ -12,6 +12,8 @@ import { PedidoComponent } from './views/pedido/pedido.component';
 import { CardapioComponent } from './views/cardapio/cardapio.component';
 import { CategoriaComponent } from './views/categoria/categoria.component';
 import { HomeComponent } from './views/home/home.component';
+import { DetalhesComponent } from './views/detalhes/detalhes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { HomeComponent } from './views/home/home.component';
     PedidoComponent,
     CardapioComponent,
     CategoriaComponent,
-    HomeComponent
+    HomeComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

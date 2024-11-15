@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-description',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './description.component.scss'
 })
 export class DescriptionComponent {
+
+  @Input() title: string = '';
+  @Input() text: string = '';
 
 }
