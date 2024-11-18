@@ -17,4 +17,11 @@ input[type="number"] {
   border-radius: 4px;
   font-size: 16px;
   font-family: Arial, sans-serif;
+
+  @media (max-width: 768px) { // Tablets
+    width: 80%;
+  }
+  @media (max-width: 576px) { // Celulares
+    width: 80%;
+  }
 }

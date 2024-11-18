@@ -9,6 +9,7 @@ export class CardComponent {
 
   @Input() title: string = '';
   @Input() description: string = '';
+  @Input() description_text: string = '';
   @Input() imageUrl: string = '';
   @Input() price?: string = '';
 

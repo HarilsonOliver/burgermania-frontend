@@ -2,11 +2,14 @@
 <!-- cardapio.component.html -->
 <h2 class="title">CARDÁPIO</h2>
 <div class="menu">
-  <app-card *ngFor="let item of menuItems"
-            [title]="item.title"
-            [description]="item.description"
-            [imageUrl]="item.imageUrl">
-  </app-card>
+  <div class="menu">
+    <app-card *ngFor="let item of menuItems"
+              [title]="item.title"
+              [description]="item.description"
+              [imageUrl]="item.imageUrl"
+              (click)="viewCategory(item.title)">
+    </app-card>
+  </div>
 </div>
 <div class="button-container">
   <app-button label="VER CARDÁPIO COMPLETO" type="filled" size="large"></app-button>

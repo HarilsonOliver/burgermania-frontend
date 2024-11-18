@@ -5,9 +5,11 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 3%;
-  width: 256px;
+  min-width: 256px;
+  max-width: 404px;
   height: 66px;
   font-family: Arial, Helvetica, sans-serif;
+  white-space: nowrap;
 
 
   &.filled {
@@ -29,8 +31,5 @@ button {
       margin-right: 5%;
     }
   }
-  button.large {
-    width: 404px;
-    height: 74px;
-  }
+
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface MenuItem {
   title: string;
@@ -30,5 +31,11 @@ export class CardapioComponent {
       imageUrl: '/burgersCat.png'
     }
   ];
+
+  constructor(private router: Router) {}
+
+  viewCategory(title: string) {
+    this.router.navigate(['/categoria', title]);
+  }
 
 }

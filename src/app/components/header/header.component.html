@@ -1,11 +1,10 @@
 <div class="header">
-  <div class="logo">
+  <div class="logo" routerLink="/home" style="cursor: pointer;">
     <img src="/logo.svg" alt="Burguer Mania Logo" />
   </div>
   <button class="menu-toggle" (click)="toggleSidebar()">
     {{ isSidebarActive ? '✖' : '☰' }}
   </button>
-  <button class="menu-toggle" (click)="toggleSidebar()">☰</button>
   <nav class="menu" [class.active]="isSidebarActive">
     <a routerLink="/home" (click)="toggleSidebar()">Início</a>
     <a routerLink="/categoria" (click)="toggleSidebar()">Categoria</a>

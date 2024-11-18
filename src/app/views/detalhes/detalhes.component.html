@@ -1,25 +1,31 @@
 <app-header></app-header>
 <h2 class="title">DETALHES</h2>
 
-<div class="details-container">
+<div class="details-container" *ngIf="produto; else notFound">
   <!-- Card do produto -->
-  <app-card
-    title="X-Alface-Premium"
-    description="Pão, Hambúrguer, alface, tomate, queijo e maionese"
-    imageUrl="/burgersCat.png"
-    price='35,00 R$'>
-
-  </app-card>
+  <div class="card-container">
+    <app-card
+      [title]="produto.title"
+      [description]="produto.description"
+      [imageUrl]="produto.imageUrl"
+      [price]="produto.price">
+    </app-card>
+  </div>
 
   <!-- Descrição do produto -->
   <div class="description-container">
-    <app-description title="Descrição"
-                     text="Um hambúrguer vegano suculento feito com uma base de grão-de-bico e quinoa, temperado com especiarias defumadas, cebola caramelizada e alho, garantindo uma textura rica e saborosa. Servido em um pão macio, ele vem acompanhado de fatias frescas de tomate, alface crocante, picles, abacate cremoso e uma generosa camada de maionese de ervas vegana. Finalizado com molho barbecue agridoce e uma pitada de pimenta-do-reino moída na hora, proporcionando uma combinação deliciosa de sabores e texturas em cada mordida.">
+    <app-description
+      [title]="'Descrição'"
+      [text]="produto.description_text">
     </app-description>
   </div>
 </div>
 
+<ng-template #notFound>
+  <p>Produto não encontrado.</p>
+</ng-template>
+
 <!-- Botão de compra -->
-<div class="button-container">
+<div class="button-container" *ngIf="produto">
   <app-button label="COMPRAR" type="filled"></app-button>
 </div>
