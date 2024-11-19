@@ -27,5 +27,5 @@
 
 <!-- Botão de compra -->
 <div class="button-container" *ngIf="produto">
-  <app-button label="COMPRAR" type="filled"></app-button>
+  <app-button label="COMPRAR" type="filled" (click)="navigateTo('pedido')"></app-button>
 </div>

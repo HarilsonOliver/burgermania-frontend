@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface CategoriaItem {
   title: string;
@@ -46,7 +47,7 @@ export class DetalhesComponent implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -55,5 +56,9 @@ export class DetalhesComponent implements OnInit {
         .flatMap((categoria) => categoria.items)
         .find((item) => item.title === productTitle);
     });
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([`/${route}`]);
   }
 }

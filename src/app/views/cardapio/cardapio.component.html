@@ -1,7 +1,9 @@
 <app-header></app-header>
-<!-- cardapio.component.html -->
+
 <h2 class="title">CARDÁPIO</h2>
+
 <div class="menu">
+
   <div class="menu">
     <app-card *ngFor="let item of menuItems"
               [title]="item.title"
@@ -10,7 +12,9 @@
               (click)="viewCategory(item.title)">
     </app-card>
   </div>
+
 </div>
+
 <div class="button-container">
   <app-button label="VER CARDÁPIO COMPLETO" type="filled" size="large"></app-button>
 </div>
