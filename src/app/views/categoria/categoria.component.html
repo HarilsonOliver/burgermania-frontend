@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<h2 class="title">CATEGORIA: {{ categoriaAtual?.name }}</h2>
+<h2 class="title">{{ categoriaAtual?.name }}</h2>
 
 <div *ngIf="categoriaAtual; else notFound" class="menuCategoria">
   <app-card
