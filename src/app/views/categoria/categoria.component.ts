@@ -88,4 +88,10 @@ export class CategoriaComponent implements OnInit {
   navigateToProduct(productTitle: string) {
     this.router.navigate(['/produto', productTitle]);
   }
+
+  showAll: boolean = false;
+  
+  toggleMenu() {
+    this.showAll = !this.showAll;
+  }
 }

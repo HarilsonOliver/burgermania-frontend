@@ -18,5 +18,5 @@
 </ng-template>
 
 <div class="button-container">
-  <app-button label="VER CARDÁPIO COMPLETO" type="filled" size="large"></app-button>
+  <app-button [label]="showAll ? 'MOSTRAR MENOS' : 'VER CARDÁPIO COMPLETO'" type="filled" size="large" (click)="toggleMenu()"></app-button>
 </div>

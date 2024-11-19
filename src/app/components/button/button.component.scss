@@ -25,9 +25,9 @@ button {
     border: 2px solid #ED0000;
 
     @media (max-width: 768px) { // Tablets
-      margin-right: 5%;
+      margin-right: 10%;
     }
-    @media (max-width: 576px) { // Celulares
+    @media (max-width: 360px) { // Celulares
       margin-right: 5%;
     }
   }
