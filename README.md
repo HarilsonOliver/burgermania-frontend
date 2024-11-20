@@ -9,7 +9,7 @@
 ## Estrutura do Projeto
 
 - **src/app/components**: Contém os componentes reutilizáveis (Header, Botão, Card, Descrição e Input).
-- **src/app/pages**: Contém as páginas principais do projeto (Pedido, Cardápio, Categoria).
+- **src/app/views**: Contém as páginas principais do projeto (Pedido, Cardápio, Categoria).
 - **src/styles.css**: Arquivo de estilos globais, onde estão definidas as variáveis CSS.
 
 ## Requisitos do Projeto
