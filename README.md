@@ -14,10 +14,13 @@
 
 ## Requisitos do Projeto
 
-- **Página de Pedido**: Exibe informações do pedido.
+- **Página de Home**: Exibe o Header e botões de fazer pedido e acessar cardápio.
 - **Página de Cardápio**:
   - Lista categorias de hambúrgueres.
   - Redireciona para uma página com os itens disponíveis ao selecionar uma categoria.
+- **Página de Detalhes**: Exibe informações do pedido com preço e descrição detalhada.
+- **Página de Pedido**: Exibe informações inputs de quantidade e observações.
+
 
 ## Configuração Inicial
 
