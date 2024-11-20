@@ -25,7 +25,7 @@ Instale as dependências do projeto:
    
    ```bash
    npm install
-
+   ```
 ## Executando o Projeto
 
 Para iniciar o servidor de desenvolvimento e executar o projeto, use o comando:
