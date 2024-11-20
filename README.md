@@ -1,5 +1,5 @@
 # Burger Mania - Frontend
-![](public/Home.png)
+
 ## Funcionalidades
 
 - **Componentização**: Contém componentes reutilizáveis, como Header, Botão, Card, Descrição e Input.
