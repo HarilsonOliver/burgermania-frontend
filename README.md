@@ -28,7 +28,7 @@ Instale as dependências do projeto:
    ```
 ## Executando o Projeto
 
-Para iniciar o servidor de desenvolvimento e executar o projeto, use o comando:
+Iniciar o servidor de desenvolvimento e executar o projeto:
 
 ```bash
 ng serve
