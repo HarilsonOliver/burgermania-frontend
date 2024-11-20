@@ -21,10 +21,15 @@
 
 ## Configuração Inicial
 
-1. Instale as dependências do projeto:
+Instale as dependências do projeto:
+   
    ```bash
    npm install
-2.Inicie o servidor de desenvolvimento:
-   ```bash
-   ng serve
 
+## Executando o Projeto
+
+Para iniciar o servidor de desenvolvimento e executar o projeto, use o comando:
+
+```bash
+ng serve
+```
