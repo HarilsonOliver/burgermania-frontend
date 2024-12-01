@@ -7,7 +7,8 @@
     *ngFor="let item of (showAll ? categoryItems : categoryItems.slice(0, 3))"
     [title]="item.nome"
     [description]="item.descricao"
-    [imageUrl]="item.pathImage">
+    [imageUrl]="item.pathImage"
+    (click)="viewCategoryProducts(item.id, item.nome)">
   </app-card>
 </div>
 

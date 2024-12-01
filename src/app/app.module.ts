@@ -15,6 +15,7 @@ import { HomeComponent } from './views/home/home.component';
 import { DetalhesComponent } from './views/detalhes/detalhes.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriaProdutosComponent } from './views/categoria-produtos/categoria-produtos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardapioComponent,
     CategoriaComponent,
     HomeComponent,
-    DetalhesComponent
+    DetalhesComponent,
+    CategoriaProdutosComponent
   ],
   imports: [
     BrowserModule,

@@ -20,13 +20,4 @@ export class CategoriaService {
   getCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.apiUrl);
   }
-
- /* getCategoriaByName(name: string): Observable<Categoria> {
-    return this.http.get<Categoria>(`${this.apiUrl}?name=${name}`);
-  }
-
-  getCategoriaById(id: number): Observable<Categoria> {
-    return this.http.get<Categoria>(`http://localhost:5016/api/categoria/${id}`);
-  }*/
-
 }

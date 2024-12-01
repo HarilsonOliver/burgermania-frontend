@@ -22,13 +22,19 @@ export class CategoriaComponent implements OnInit {
 
     this.categoriaService.getCategorias().subscribe(
       (categorias) => {
-        console.log('Dados recebidos do backend:', categorias); // Log dos dados
+        console.log('Dados recebidos do backend:', categorias);
         this.categoryItems = categorias;
       },
       (error) => {
-        console.error('Erro ao carregar os produtos:', error); // Log de erro
+        console.error('Erro ao carregar os produtos:', error);
       }
     );
+  }
+
+  viewCategoryProducts(categoryId: number, categoryName: string) {
+    this.router.navigate(['/categoria-produtos', categoryId], {
+      queryParams: { name: categoryName },
+    });
   }
 
   toggleMenu() {

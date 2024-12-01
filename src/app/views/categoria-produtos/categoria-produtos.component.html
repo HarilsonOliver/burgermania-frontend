@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<h2 class="title">{{ categoryName }}</h2>
+
+<div class="products">
+  <app-card
+    *ngFor="let product of products"
+    [title]="product.nome"
+    [description]="product.descricaoBase"
+    [imageUrl]="product.pathImage">
+  </app-card>
+</div>
+
+<div class="button-container">
+  <app-button [label]="showAll ? 'MOSTRAR MENOS' : 'VER CARDÁPIO COMPLETO'" type="filled" size="large" (click)="toggleMenu()"></app-button>
+</div>
