@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductService, Product } from '../../services/product/product.service';
+import { ProductService, Product} from '../../services/product/product.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class CardapioComponent implements OnInit {
   menuItems: Product[] = [];
   showAll: boolean = false;
 
-  constructor(private router: Router, private productService: ProductService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.loadMenuItems();
@@ -32,9 +32,5 @@ export class CardapioComponent implements OnInit {
 
   toggleMenu() {
     this.showAll = !this.showAll;
-  }
-
-  viewCategory(nome: string) {
-    this.router.navigate(['/categoria', nome]);
   }
 }

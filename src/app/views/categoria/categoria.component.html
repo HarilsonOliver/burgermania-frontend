@@ -1,17 +1,15 @@
 <app-header></app-header>
 
-<h2 class="title">{{ categoriaAtual?.name }}</h2>
+<h2 class="title">CATEGORIAS</h2>
 
-<div *ngIf="categoriaAtual; else notFound" class="menuCategoria">
+<div class="menuCategoria">
   <app-card
-    *ngFor="let item of categoriaAtual.items"
-    [title]="item.title"
-    [description]="item.description"
-    [imageUrl]="item.imageUrl"
-    (click)="navigateToProduct(item.title)">
+    *ngFor="let item of (showAll ? categoryItems : categoryItems.slice(0, 3))"
+    [title]="item.nome"
+    [description]="item.descricao"
+    [imageUrl]="item.pathImage">
   </app-card>
 </div>
-
 
 <ng-template #notFound>
   <p>Categoria não encontrada.</p>

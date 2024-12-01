@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'pedido', component: PedidoComponent },
   { path: 'cardapio', component: CardapioComponent },
   { path: 'categoria', component: CategoriaComponent },
-  { path: 'categoria/:title', component: CategoriaComponent },
+  { path: 'categoria/:id', component: CategoriaComponent },
   { path: 'detalhes', component: DetalhesComponent },
   { path: 'detalhes/:title', component: DetalhesComponent },
   { path: 'produto/:productTitle', component: DetalhesComponent }
