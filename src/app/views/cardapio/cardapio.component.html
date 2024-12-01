@@ -8,7 +8,8 @@
     [title]="item.nome"
     [description]="item.descricaoBase"
     [imageUrl]="item.pathImage"
-    [price]="item.preco.toFixed(2)">
+    [price]="item.preco.toFixed(2)"
+    (click)="openDetails(item.id)">
   </app-card>
 </div>
 

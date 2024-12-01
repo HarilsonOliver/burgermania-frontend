@@ -12,7 +12,7 @@ export class CardapioComponent implements OnInit {
   menuItems: Product[] = [];
   showAll: boolean = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.loadMenuItems();
@@ -28,6 +28,10 @@ export class CardapioComponent implements OnInit {
         console.error('Erro ao carregar os produtos:', error); // Log de erro
       }
     );
+  }
+
+  openDetails(productId: number) {
+    this.router.navigate(['/detalhes', productId]);
   }
 
   toggleMenu() {

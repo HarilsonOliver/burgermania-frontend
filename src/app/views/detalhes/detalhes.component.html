@@ -1,31 +1,27 @@
 <app-header></app-header>
 <h2 class="title">DETALHES</h2>
 
-<div class="details-container" *ngIf="produto; else notFound">
+<div class="details-container" *ngIf="produto;">
   <!-- Card do produto -->
   <div class="card-container">
     <app-card
-      [title]="produto.title"
-      [description]="produto.description"
-      [imageUrl]="produto.imageUrl"
-      [price]="produto.price">
+      [title]="produto.nome"
+      [description]="produto.descricaoBase"
+      [imageUrl]="produto.pathImage"
+      [price]="produto.preco.toFixed(2)">
     </app-card>
   </div>
 
   <!-- Descrição do produto -->
   <div class="description-container">
     <app-description
-      [title]="'Descrição'"
-      [text]="produto.description_text">
+      [title]="'Descrição Completa'"
+      [text]="produto.descricaoInteira">
     </app-description>
   </div>
-</div>
 
-<ng-template #notFound>
-  <p>Produto não encontrado.</p>
-</ng-template>
-
-<!-- Botão de compra -->
-<div class="button-container" *ngIf="produto">
-  <app-button label="COMPRAR" type="filled" (click)="navigateTo('pedido')"></app-button>
+  <!-- Botão de compra -->
+  <div class="button-container">
+   <!-- <app-button label="COMPRAR" type="filled" (click)="navigateTo('pedido')"></app-button> -->
+  </div>
 </div>

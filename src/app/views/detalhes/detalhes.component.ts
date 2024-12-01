@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-
-interface CategoriaItem {
-  title: string;
-  description: string;
-  description_text: string;
-  imageUrl: string;
-  price: string;
-}
+import { ProductService, Product } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-detalhes',
@@ -16,49 +8,30 @@ interface CategoriaItem {
   styleUrls: ['./detalhes.component.scss'],
 })
 export class DetalhesComponent implements OnInit {
-  produto: CategoriaItem | undefined;
+  produto: Product | undefined;
 
-  categorias = [
-    {
-      name: 'X-Vegan',
-      items: [
-        {
-          title: 'X-Alface-Premium',
-          description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-          description_text: 'Um hambúrguer vegano suculento feito com uma base de grão-de-bico e quinoa, temperado com especiarias defumadas, cebola caramelizada e alho, garantindo uma textura rica e saborosa. Servido em um pão macio, ele vem acompanhado de fatias frescas de tomate, alface crocante, picles, abacate cremoso e uma generosa camada de maionese de ervas vegana. Finalizado com molho barbecue agridoce e uma pitada de pimenta-do-reino moída na hora, proporcionando uma combinação deliciosa de sabores e texturas em cada mordida.',
-          imageUrl: '/burgersCat.png',
-          price: '35,00 R$'
-        },
-        {
-          title: 'X-Tomate',
-          description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-          description_text: 'Delicioso hambúrguer vegano',
-          imageUrl: '/burgersCat.png',
-          price: '35,00 R$'
-        },
-        {
-          title: 'X-Frutas',
-          description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-          description_text: 'Delicioso hambúrguer vegano',
-          imageUrl: '/burgersCat.png',
-          price: '35,00 R$'
-        },
-      ],
-    },
-  ];
-
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const productTitle = params.get('productTitle');
-      this.produto = this.categorias
-        .flatMap((categoria) => categoria.items)
-        .find((item) => item.title === productTitle);
+      const productId = params.get('id');
+      console.log('ID recebido da URL:', productId); // Log do ID na URL
+      if (productId) {
+        this.loadProductDetails(+productId);
+      }
     });
   }
-
-  navigateTo(route: string) {
-    this.router.navigate([`/${route}`]);
+  
+  loadProductDetails(productId: number) {
+    console.log('Carregando produto com ID:', productId); // Log do ID recebido
+    this.productService.getProductById(productId).subscribe(
+      (product) => {
+        console.log('Produto carregado:', product); // Log do produto recebido
+        this.produto = product;
+      },
+      (error) => {
+        console.error('Erro ao carregar o produto:', error);
+      }
+    );
   }
 }
