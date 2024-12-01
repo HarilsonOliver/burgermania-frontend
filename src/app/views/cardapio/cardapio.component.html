@@ -4,12 +4,14 @@
 
 <div class="menu">
   <app-card
-    *ngFor="let item of (showAll ? menuItems : menuItems.slice(0, 3))"
-    [title]="item.title"
-    [description]="item.description"
-    [imageUrl]="item.imageUrl"
-    (click)="viewCategory(item.title)">
-  </app-card>
+  *ngFor="let item of (showAll ? menuItems : menuItems.slice(0, 3))"
+  [title]="item.nome"
+  [description]="item.descricaoBase"
+  [imageUrl]="item.pathImage"
+  [price]="item.preco.toFixed(2)"
+  (click)="viewCategory(item.nome)">
+</app-card>
+
 </div>
 
 <div class="button-container">

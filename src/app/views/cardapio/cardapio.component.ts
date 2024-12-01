@@ -1,61 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService, Product } from '../../services/product/product.service';
 
-interface MenuItem {
-  title: string;
-  description: string;
-  imageUrl: string;
-}
 
 @Component({
   selector: 'app-cardapio',
   templateUrl: './cardapio.component.html',
-  styleUrl: './cardapio.component.scss'
+  styleUrls: ['./cardapio.component.scss'],
 })
-export class CardapioComponent {
-  menuItems: MenuItem[] = [
-    {
-      title: 'X-Vegan',
-      description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-      imageUrl: '/burgersCat.png',
-    },
-    {
-      title: 'X-Fitness',
-      description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-      imageUrl: '/burgersCat.png',
-    },
-    {
-      title: 'X-Infarto',
-      description: 'Pão, Hambúrguer, alface, tomate, queijo e maionese',
-      imageUrl: '/burgersCat.png',
-    },
-    {
-      title: 'X-Gourmet',
-      description: 'Pão artesanal, hambúrguer gourmet, queijo brie e rúcula',
-      imageUrl: '/burgersCat.png',
-    },
-    {
-      title: 'X-Fresco',
-      description: 'Pão artesanal, hambúrguer gourmet, queijo brie e rúcula',
-      imageUrl: '/burgersCat.png',
-    },
-    {
-      title: 'X-Mole',
-      description: 'Pão artesanal, hambúrguer gourmet, queijo brie e rúcula',
-      imageUrl: '/burgersCat.png',
-    },
-  ];
-
+export class CardapioComponent implements OnInit {
+  menuItems: Product[] = [];
   showAll: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private productService: ProductService) {}
+
+  ngOnInit() {
+    this.loadMenuItems();
+  }
+
+  loadMenuItems() {
+    this.productService.getProducts().subscribe(
+      (products) => {
+        console.log('Dados recebidos do backend:', products); // Log dos dados
+        this.menuItems = products;
+      },
+      (error) => {
+        console.error('Erro ao carregar os produtos:', error); // Log de erro
+      }
+    );
+  }
 
   toggleMenu() {
     this.showAll = !this.showAll;
   }
 
-  viewCategory(title: string) {
-    this.router.navigate(['/categoria', title]);
+  viewCategory(nome: string) {
+    this.router.navigate(['/categoria', nome]);
   }
 }
-

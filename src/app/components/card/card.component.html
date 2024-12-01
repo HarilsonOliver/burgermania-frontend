@@ -1,7 +1,6 @@
-<!-- card.component.html -->
 <div class="card">
-  <img [src]="imageUrl" alt="{{ title }}" class="card-image">
+  <img [src]="imageUrl" alt="{{ title }}" class="card-image" />
   <h3>{{ title }}</h3>
   <p>{{ description }}</p>
-  <p *ngIf="price" class="card-price">{{ price }}</p>
+  <p *ngIf="price" class="card-price">R$ {{ price }}</p>
 </div>
