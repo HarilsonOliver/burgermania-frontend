@@ -7,7 +7,8 @@
     *ngFor="let product of products"
     [title]="product.nome"
     [description]="product.descricaoBase"
-    [imageUrl]="product.pathImage">
+    [imageUrl]="product.pathImage"
+    (click)="openDetails(product.id)">
   </app-card>
 </div>
 
