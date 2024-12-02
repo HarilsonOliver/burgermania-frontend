@@ -12,7 +12,8 @@
         [(ngModel)]="produto1"
         name="produto1"
         (ngModelChange)="onProductChange($event)">
-        <option *ngFor="let product of produtos" [value]="product.id">
+        <option [value]="null" disabled selected>Selecione um produto</option>
+        <option *ngFor="let product of produtos" [value]="product.id" [selected]="product.id === produto1">
           {{ product.nome }}
         </option>
       </app-input>

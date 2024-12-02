@@ -12,6 +12,7 @@ export class PedidoComponent implements OnInit {
   produto1: number | null = null; // Agora armazena o ID do produto
   quantidade1: number = 1;
   precoProduto: number = 0;
+  produtoNome: string = ''; // Adicionar essa propriedade
   totalPrice: number = 0;
 
   constructor(
@@ -26,40 +27,58 @@ export class PedidoComponent implements OnInit {
     // Recupera os parâmetros da query string
     this.route.queryParams.subscribe((params) => {
       const productId = params['id'] ? +params['id'] : null;
+      const productName = params['nome'] || null; // Obtém o nome do produto
       if (productId) {
         this.produto1 = productId;
         this.setProductDetails(productId);
       }
+      else {
+        this.produto1 = null; // Define o placeholder como selecionado
+      }
+      // Opcionalmente, usar o nome para exibir ou registrar em logs
+      if (productName) {
+        console.log(`Produto selecionado: ${productName}`);
+      }
     });
   }
+
 
   fetchProducts(): void {
     this.productService.getProducts().subscribe(
       (data) => {
         this.produtos = data;
         if (this.produto1) {
-          this.setProductDetails(this.produto1);
+          this.setProductDetails(this.produto1); // Sincroniza detalhes ao carregar
         }
       },
       (error) => console.error('Erro ao buscar produtos:', error)
     );
   }
 
+
   setProductDetails(productId: number): void {
+
     const selectedProduct = this.produtos.find((product) => product.id === productId);
     if (selectedProduct) {
+      this.produto1 = selectedProduct.id; // Assegura que o ID é refletido no dropdown
+      this.produtoNome = selectedProduct.nome;
       this.precoProduto = selectedProduct.preco;
       this.updateTotal();
     }
   }
 
+
   onProductChange(productId: number): void {
-  const selectedProduct = this.produtos.find((product) => product.id === +productId);
-  if (selectedProduct) {
-    this.precoProduto = selectedProduct.preco; // Atualiza o preço do produto selecionado
-    this.updateTotal(); // Recalcula o preço total
+    const selectedProduct = this.produtos.find((product) => product.id === +productId);
+    if (selectedProduct) {
+      this.produto1 = selectedProduct.id;
+      this.produtoNome = selectedProduct.nome; // Atualiza o nome
+      this.precoProduto = selectedProduct.preco;
+      this.updateTotal();
+    }
   }
-}
+
+
 
   updateTotal(): void {
     if (this.quantidade1 > 0) {
