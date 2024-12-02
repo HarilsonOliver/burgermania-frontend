@@ -2,23 +2,28 @@
 <h2 class="title">DETALHES</h2>
 
 <div class="details-container" *ngIf="produto;">
-  <div class="card-container">
-    <app-card
-      [title]="produto.nome"
-      [description]="produto.descricaoBase"
-      [imageUrl]="produto.pathImage"
-      [price]="produto.preco.toFixed(2)">
-    </app-card>
+  <div class="content-container">
+    <!-- Card do produto -->
+    <div class="card-container">
+      <app-card
+        [title]="produto.nome"
+        [description]="produto.descricaoBase"
+        [imageUrl]="produto.pathImage"
+        [price]="produto.preco.toFixed(2)">
+      </app-card>
+    </div>
+
+    <!-- Descrição do produto -->
+    <div class="description-container">
+      <app-description
+        [title]="'Descrição Completa'"
+        [text]="produto.descricaoInteira">
+      </app-description>
+    </div>
   </div>
 
-  <div class="description-container">
-    <app-description
-      [title]="'Descrição Completa'"
-      [text]="produto.descricaoInteira">
-    </app-description>
-  </div>
-
+  <!-- Botão de compra -->
   <div class="button-container">
-   <app-button label="COMPRAR" type="filled" (click)="navigateToPedido(produto)"></app-button>
+    <app-button label="COMPRAR" type="filled" (click)="navigateToPedido(produto)"></app-button>
   </div>
 </div>
