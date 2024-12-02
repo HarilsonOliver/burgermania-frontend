@@ -3,17 +3,21 @@
 <div class="order-form-container">
   <form>
     <div class="form-row">
-      <!-- Campo Produto -->
+      <!-- Produto -->
       <app-input
         label="Produto"
+        type="select"
         id="produto1"
         [required]="true"
         [(ngModel)]="produto1"
         name="produto1"
-        readonly>
+        (ngModelChange)="onProductChange($event)">
+        <option *ngFor="let product of produtos" [value]="product.id">
+          {{ product.nome }}
+        </option>
       </app-input>
 
-      <!-- Campo Quantidade -->
+      <!-- Quantidade -->
       <app-input
         label="Quantidade"
         type="number"
@@ -24,14 +28,12 @@
         (ngModelChange)="updateTotal()">
       </app-input>
     </div>
-
     <!-- Preço Total -->
     <div class="total-price">
       Preço Total: R$ {{ totalPrice.toFixed(2) }}
     </div>
-
-    <div class="button-container">
-      <app-button label="FINALIZAR" type="filled" (click)="navigateTo('home')"></app-button>
-    </div>
   </form>
+  <div class="button-container">
+    <app-button label="FINALIZAR" type="filled" (click)="navigateTo('home')"></app-button>
+  </div>
 </div>

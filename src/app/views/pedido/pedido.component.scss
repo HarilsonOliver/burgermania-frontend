@@ -7,6 +7,32 @@
   margin-bottom: 20px;
 }
 
+.input-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  width: 100%; /* Para o campo ocupar toda a largura disponível */
+  box-sizing: border-box;
+  appearance: none; /* Remove a aparência padrão do dropdown */
+}
+
+.input-group select:focus {
+  border-color: #007bff; /* Cor do foco */
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+
 .order-form-container {
   max-width: 600px;
   margin: 0 auto;

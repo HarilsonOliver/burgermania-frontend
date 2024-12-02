@@ -10,7 +10,8 @@ export class HomeComponent {
 
   constructor(private router: Router) {}
 
-  navigateTo(route: string) {
+  navigateTo(route: string): void {
     this.router.navigate([`/${route}`]);
   }
+
 }

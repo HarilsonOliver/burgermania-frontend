@@ -1,41 +1,75 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService, Product} from '../../services/product/product.service';
 
 @Component({
   selector: 'app-pedido',
   templateUrl: './pedido.component.html',
-  styleUrls: ['./pedido.component.scss']
+  styleUrls: ['./pedido.component.scss'],
 })
-export class PedidoComponent {
-  produto1: string = '';
+export class PedidoComponent implements OnInit {
+  produtos: Product[] = [];
+  produto1: number | null = null; // Agora armazena o ID do produto
   quantidade1: number = 1;
-  observacao: string = '';
-  precoProduto: number = 0; // Preço unitário do produto
-  totalPrice: number = 0; // Preço total baseado na quantidade
+  precoProduto: number = 0;
+  totalPrice: number = 0;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
+
+  ngOnInit(): void {
+    this.fetchProducts();
+
+    // Recupera os parâmetros da query string
     this.route.queryParams.subscribe((params) => {
-      console.log('Parâmetros recebidos:', params); // Log dos parâmetros
-      if (params['nome']) {
-        this.produto1 = params['nome'];
-      }
-      if (params['preco']) {
-        this.precoProduto = +params['preco']; // Converte o preço para número
-        this.updateTotal(); // Atualiza o total ao inicializar
+      const productId = params['id'] ? +params['id'] : null;
+      if (productId) {
+        this.produto1 = productId;
+        this.setProductDetails(productId);
       }
     });
   }
 
-  // Atualiza o preço total baseado na quantidade
-  updateTotal(): void {
-    if (this.quantidade1 && this.quantidade1 > 0) {
-      this.totalPrice = this.precoProduto * this.quantidade1;
-    } else {
-      this.totalPrice = 0; // Reseta o preço total se a quantidade for inválida
+  fetchProducts(): void {
+    this.productService.getProducts().subscribe(
+      (data) => {
+        this.produtos = data;
+        if (this.produto1) {
+          this.setProductDetails(this.produto1);
+        }
+      },
+      (error) => console.error('Erro ao buscar produtos:', error)
+    );
+  }
+
+  setProductDetails(productId: number): void {
+    const selectedProduct = this.produtos.find((product) => product.id === productId);
+    if (selectedProduct) {
+      this.precoProduto = selectedProduct.preco;
+      this.updateTotal();
     }
   }
 
-  navigateTo(route: string) {
+  onProductChange(productId: number): void {
+  const selectedProduct = this.produtos.find((product) => product.id === +productId);
+  if (selectedProduct) {
+    this.precoProduto = selectedProduct.preco; // Atualiza o preço do produto selecionado
+    this.updateTotal(); // Recalcula o preço total
+  }
+}
+
+  updateTotal(): void {
+    if (this.quantidade1 > 0) {
+      this.totalPrice = this.precoProduto * this.quantidade1;
+    } else {
+      this.totalPrice = 0;
+    }
+  }
+
+  navigateTo(route: string): void {
     this.router.navigate([`/${route}`]);
   }
 }

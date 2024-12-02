@@ -1,4 +1,20 @@
 <div class="input-group">
   <label *ngIf="label" [for]="id">{{ label }} <span *ngIf="required">*</span></label>
-  <input [type]="type" [id]="id" [(ngModel)]="value" [required]="required" />
+  <ng-container *ngIf="type === 'select'; else regularInput">
+    <select
+      [id]="id"
+      [(ngModel)]="value"
+      [required]="required"
+      (change)="onChange(value)">
+      <ng-content></ng-content>
+    </select>
+  </ng-container>
+  <ng-template #regularInput>
+    <input
+      [type]="type"
+      [id]="id"
+      [(ngModel)]="value"
+      [required]="required"
+    />
+  </ng-template>
 </div>
