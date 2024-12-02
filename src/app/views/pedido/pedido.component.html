@@ -37,10 +37,20 @@
     <div class="total-price">
       Preço Total: R$ {{ totalPrice.toFixed(2) }}
     </div>
-
-
   </form>
+
   <div class="button-container">
-    <app-button label="FINALIZAR" type="filled" (click)="navigateTo('home')"></app-button>
+    <app-button
+      label="FINALIZAR"
+      type="filled"
+      (click)="finalizarPedido()">
+    </app-button>
   </div>
+
+  <!-- Exibir a mensagem de conclusão -->
+  <div *ngIf="mensagemConclusao" class="conclusao-message">
+    {{ mensagemConclusao }}
+  </div>
+
+
 </div>

@@ -20,6 +20,13 @@
   appearance: none; /* Remove a aparência padrão do dropdown */
 }
 
+.conclusao-message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #28a745; /* Verde de sucesso */
+  font-weight: bold;
+}
+
 .input-group select:focus {
   border-color: #007bff; /* Cor do foco */
   outline: none; /* Remove o contorno padrão */

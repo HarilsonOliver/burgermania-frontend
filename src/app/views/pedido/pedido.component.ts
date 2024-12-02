@@ -14,6 +14,7 @@ export class PedidoComponent implements OnInit {
   precoProduto: number = 0;
   produtoNome: string = ''; // Adicionar essa propriedade
   totalPrice: number = 0;
+  mensagemConclusao: string | null = null;
 
   constructor(
     private router: Router,
@@ -90,5 +91,20 @@ export class PedidoComponent implements OnInit {
 
   navigateTo(route: string): void {
     this.router.navigate([`/${route}`]);
+  }
+
+  finalizarPedido(): void {
+    const produtoSelecionado = this.produtos.find((p) => p.id === this.produto1);
+    if (produtoSelecionado && this.quantidade1 > 0) {
+      this.mensagemConclusao = `${this.quantidade1} ${produtoSelecionado.nome}(s) saindo no capricho.
+  Valor total a pagar: R$ ${this.totalPrice.toFixed(2)}`;
+    } else {
+      this.mensagemConclusao = 'Por favor, selecione um produto e informe a quantidade.';
+    }
+
+    // Opcional: Limpar mensagem após alguns segundos
+    setTimeout(() => {
+      this.mensagemConclusao = null;
+    }, 5000); // Limpa a mensagem após 5 segundos
   }
 }
