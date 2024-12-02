@@ -15,6 +15,11 @@
   appearance: none; /* Remove a aparência padrão do select */
 }
 
+.input-group label span {
+  color: red; /* Cor vermelha */
+}
+
+
 .input-group select:focus {
   border-color: #007bff; /* Cor do foco */
   outline: none; /* Remove o contorno padrão */
