@@ -28,10 +28,16 @@
         (ngModelChange)="updateTotal()">
       </app-input>
     </div>
+    <!-- Observação -->
+    <div class="form-group full-width">
+      <app-input label="Observação" id="observacao" [required]="true"  name="observacao"></app-input>
+    </div>
     <!-- Preço Total -->
     <div class="total-price">
       Preço Total: R$ {{ totalPrice.toFixed(2) }}
     </div>
+
+
   </form>
   <div class="button-container">
     <app-button label="FINALIZAR" type="filled" (click)="navigateTo('home')"></app-button>
