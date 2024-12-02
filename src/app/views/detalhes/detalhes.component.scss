@@ -24,7 +24,7 @@
 
 .card-container,
 .description-container {
-  flex: 1; 
+  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -40,34 +40,53 @@ h2 {
   margin-right: 8%;
 }
 
-@media (max-width: 360px){
-  .title {
-    color: #ED1B00;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 45px;
-    margin-bottom: 4%;
-  }
-  .details-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 20px;
-  }
-  .card-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 6%;
-    gap: 20px;
-  }
-  h2{
-    margin-right: 8%;
+@media (max-width: 768px){
+  
+  .content-container {
+    flex-direction: column; /* Disposição vertical */
+    align-items: center; /* Centraliza os elementos */
   }
 }
+
+@media (max-width: 360px) {
+  .description-box {
+    width: 90%; /* Responsivo: ocupa 90% da largura da tela */
+    max-width: 250px; /* Limita a largura máxima */
+    height: auto; /* Ajusta dinamicamente à altura do conteúdo */
+    padding: 15px; /* Espaçamento interno consistente */
+    border: 1px solid #A5A4A4;
+    background-color: #fff;
+    box-sizing: border-box; /* Inclui o padding no cálculo de largura/altura */
+    margin-bottom: 20px;
+    overflow: hidden; /* Evita vazamento de conteúdo */
+    word-wrap: break-word; /* Força quebra de palavras */
+    overflow-wrap: break-word;
+  }
+
+  .description-text {
+    font-size: 12px; /* Tamanho menor do texto para telas pequenas */
+    line-height: 1.4;
+    text-align: justify; /* Justifica o texto */
+    white-space: normal; /* Permite quebra de linha */
+    word-wrap: break-word; /* Garante a quebra de palavras */
+    overflow-wrap: break-word; /* Compatibilidade adicional */
+  }
+
+  .content-container {
+    flex-direction: column; /* Disposição vertical */
+    align-items: center; /* Centraliza os elementos */
+  }
+
+  .card-container,
+  .description-container {
+    width: 100%; /* Garante que os elementos ocupem toda a largura */
+    justify-content: center;
+    margin-bottom: 20px; /* Espaçamento adequado */
+  }
+
+  .description-container {
+    margin-top: 0; /* Remove margens extras */
+  }
+}
+
+
