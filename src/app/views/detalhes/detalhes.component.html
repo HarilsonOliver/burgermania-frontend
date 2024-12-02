@@ -2,7 +2,6 @@
 <h2 class="title">DETALHES</h2>
 
 <div class="details-container" *ngIf="produto;">
-  <!-- Card do produto -->
   <div class="card-container">
     <app-card
       [title]="produto.nome"
@@ -12,7 +11,6 @@
     </app-card>
   </div>
 
-  <!-- Descrição do produto -->
   <div class="description-container">
     <app-description
       [title]="'Descrição Completa'"
@@ -20,8 +18,7 @@
     </app-description>
   </div>
 
-  <!-- Botão de compra -->
   <div class="button-container">
-   <!-- <app-button label="COMPRAR" type="filled" (click)="navigateTo('pedido')"></app-button> -->
+   <app-button label="COMPRAR" type="filled" (click)="navigateToPedido(produto)"></app-button>
   </div>
 </div>

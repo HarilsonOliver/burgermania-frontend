@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService, Product } from '../../services/product/product.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProductService, Product } from '../../services/product/product.service'
 export class DetalhesComponent implements OnInit {
   produto: Product | undefined;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -21,7 +21,19 @@ export class DetalhesComponent implements OnInit {
       }
     });
   }
-  
+
+  navigateToPedido(produto: Product): void {
+    if (produto) {
+      this.router.navigate(['/pedido'], {
+        queryParams: {
+          nome: produto.nome,
+          preco: produto.preco,
+          id: produto.id
+        },
+      });
+    }
+  }
+
   loadProductDetails(productId: number) {
     console.log('Carregando produto com ID:', productId); // Log do ID recebido
     this.productService.getProductById(productId).subscribe(
